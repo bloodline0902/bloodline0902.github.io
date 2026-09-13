@@ -25,7 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostSafe(slug, "en") ?? getPostSafe(slug, "zh");
-  const canonicalPath = `/blog/${slug}/`;
+  const canonicalPath = `/posts/${slug}/`;
   if (!post) {
     return {
       title: "Post Not Found",
