@@ -13,16 +13,12 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.author }],
   creator: siteConfig.author,
   publisher: siteConfig.author,
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     type: "website",
-    url: "/",
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,

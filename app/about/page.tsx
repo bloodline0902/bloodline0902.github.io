@@ -1,5 +1,6 @@
 export const metadata = {
-  title: "About | Tony's Portfolio",
+  title: "About",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {

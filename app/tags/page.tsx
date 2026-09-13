@@ -1,8 +1,9 @@
 import { getAllTags } from "@/lib/posts";
 
 export const metadata = {
-  title: "Tags | Tony's Portfolio",
+  title: "Tags",
   description: "An archive of posts sorted by tag.",
+  alternates: { canonical: "/tags/" },
 };
 
 function formatDate(dateStr: string): string {
