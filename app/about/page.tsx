@@ -33,7 +33,7 @@ export default function AboutPage() {
 
         <div className="flex gap-3">
           <a
-            href="https://github.com/tonyh2021"
+            href="https://github.com/bloodline0902"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-gray-800 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-700"

@@ -100,7 +100,7 @@ export const appConfigs = [
     iconBg: "bg-gray-700",
     desktop: false,
     show: true,
-    link: "https://github.com/tonyh2021",
+    link: "https://github.com/bloodline0902",
   },
 ] as const satisfies readonly AppConfig[];
 

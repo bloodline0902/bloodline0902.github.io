@@ -39,11 +39,11 @@ const terminalData: TerminalEntry[] = [
               GitHub:{" "}
               <a
                 className="text-blue-300"
-                href="https://github.com/tonyh2021"
+                href="https://github.com/bloodline0902"
                 target="_blank"
                 rel="noreferrer"
               >
-                @tonyh2021
+                @bloodline0902
               </a>
             </li>
             <li>

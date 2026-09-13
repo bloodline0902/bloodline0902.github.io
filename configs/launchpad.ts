@@ -10,7 +10,7 @@ export const launchpadApps: LaunchpadItem[] = [
     id: "github",
     title: "GitHub",
     img: "/images/apps/github.png",
-    link: "https://github.com/tonyh2021",
+    link: "https://github.com/bloodline0902",
   },
   {
     id: "linkedin",

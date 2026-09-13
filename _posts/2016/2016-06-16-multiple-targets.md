@@ -114,7 +114,7 @@ Pods-Target_2.debug.xcconfig` in your build configuration.
 
 
 ### 代码：
-文章中的代码都可以从我的GitHub [`MultipleTargetTest`](https://github.com/tonyh2021/MultipleTargetTest)找到。
+文章中的代码都可以从我的GitHub [`MultipleTargetTest`](https://github.com/bloodline0902/MultipleTargetTest)找到。
 
 ### 参考资料：
 

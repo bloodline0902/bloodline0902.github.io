@@ -19,7 +19,7 @@ ROBOTSTXT_OBEY = False
 
 ## Dynamically Set the User Agent
 
-After running `$ scrapy shell https://tonyh2021.github.io/articles/2017/12/15/Scrapy-Tutorial.html`, inspect the request:
+After running `$ scrapy shell https://bloodline0902.github.io/articles/2017/12/15/Scrapy-Tutorial.html`, inspect the request:
 
 ```shell
 >>> request.headers
@@ -160,7 +160,7 @@ After your scraper's IP is blocked, you can dynamically switch to a new IP and c
 
 In China, you can use [Xici Proxy](http://www.xicidaili.com/); internationally, you can use the [Tor project](https://www.torproject.org/), or the open-source project [scrapoxy](http://scrapoxy.io/).
 
-This topic is a bit involved, so I've written a [separate post](https://tonyh2021.github.io/articles/2017/12/30/scrapy-proxy.html) about it.
+This topic is a bit involved, so I've written a [separate post](https://bloodline0902.github.io/articles/2017/12/30/scrapy-proxy.html) about it.
 
 ## Distributed Crawlers
 

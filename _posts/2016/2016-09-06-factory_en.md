@@ -226,7 +226,7 @@ In plain terms: Factory Method is for a single abstract type; Abstract Factory i
 
 ![factory02](/images/posts/20160906-factory/factory02.png)
 
-The client only knows `AbstractFactory` and `AbstractProduct`. The implementation details of each factory class are treated as a black box. Even the products don't know who will be responsible for creating them. Only the concrete factory knows what to create and how to create it (most often using the Factory Method internally). Factory methods defer actual creation to overriding subclasses. In the class diagram, `createProductA` and `createProductB` are factory methods. The original abstract methods create nothing. The Abstract Factory pattern is often used alongside the [Prototype pattern](https://tonyh2021.github.io/articles/2016/09/05/prototype.html), [Singleton pattern](), and [Flyweight pattern]().
+The client only knows `AbstractFactory` and `AbstractProduct`. The implementation details of each factory class are treated as a black box. Even the products don't know who will be responsible for creating them. Only the concrete factory knows what to create and how to create it (most often using the Factory Method internally). Factory methods defer actual creation to overriding subclasses. In the class diagram, `createProductA` and `createProductB` are factory methods. The original abstract methods create nothing. The Abstract Factory pattern is often used alongside the [Prototype pattern](https://bloodline0902.github.io/articles/2016/09/05/prototype.html), [Singleton pattern](), and [Flyweight pattern]().
 
 ### When to Use It
 
@@ -376,8 +376,8 @@ When external code uses functionality provided by abstract subclasses, it doesn'
 
 ### References
 
-[Deep Copy vs. Shallow Copy in iOS](https://tonyh2021.github.io/articles/2016/03/10/memory3-copy.html)
+[Deep Copy vs. Shallow Copy in iOS](https://bloodline0902.github.io/articles/2016/03/10/memory3-copy.html)
 
 ### Code
 
-All code in this article can be found in my GitHub repository [`DesignPatterns`](https://github.com/tonyh2021/DesignPatterns).
+All code in this article can be found in my GitHub repository [`DesignPatterns`](https://github.com/bloodline0902/DesignPatterns).

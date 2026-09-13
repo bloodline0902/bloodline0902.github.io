@@ -9,7 +9,7 @@ comments: true
 
 ## Introduction
 
-If you just want to quickly set up a static `github` site and don't have time to study `jekyll` syntax right now, I recommend directly forking [my repository](https://github.com/tonyh2021/tonyh2021.github.io).
+If you just want to quickly set up a static `github` site and don't have time to study `jekyll` syntax right now, I recommend directly forking [my repository](https://github.com/bloodline0902/bloodline0902.github.io).
 
 For the official documentation, please refer to the [official docs](http://jekyllrb.com/docs/home/).
 This post covers only `jekyll` syntax, not other topics. For how to set up a blog, refer to [this post]().
@@ -69,7 +69,7 @@ File contents might look like:
 
 ```
 - name: Tony Han
-  github: tonyh2021
+  github: bloodline0902
   nick : Tony
 ```
 

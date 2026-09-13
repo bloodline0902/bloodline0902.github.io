@@ -20,7 +20,7 @@ The Singleton is probably the simplest form among all design patterns. The inten
 
 ## When to Use
 
-- A class must have exactly one instance, and that instance must be accessible from a well-known access point, such as a [factory method](https://tonyh2021.github.io/articles/2016/09/06/factory.html).
+- A class must have exactly one instance, and that instance must be accessible from a well-known access point, such as a [factory method](https://bloodline0902.github.io/articles/2016/09/06/factory.html).
 
 - The sole instance should be extensible only through subclassing, and clients should be able to use the extended object without modifying their code.
 
@@ -254,6 +254,6 @@ Whenever an application needs a centralized class to coordinate its services, th
 
 ### Code
 
-All the code in this article can be found on my GitHub [`DesignPatterns`](https://github.com/tonyh2021/DesignPatterns).
+All the code in this article can be found on my GitHub [`DesignPatterns`](https://github.com/bloodline0902/DesignPatterns).
 
 

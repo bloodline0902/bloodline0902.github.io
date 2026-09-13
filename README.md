@@ -9,18 +9,20 @@ Next.js 15 (App Router), React 19, Tailwind v4 + Typography, Framer Motion, Zust
 ## Features
 
 ### Desktop (`/desk`)
+
 macOS simulator with dock, Launchpad, Spotlight, genie minimize; windows for Blog (markdown + tags), About, Safari, VS Code (github1s), Terminal; light/dark.
 
 ### Mobile (`/mobile`)
+
 Responsive blog UI (inspired by [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)):
 
-| Route | Description |
-|-------|-------------|
-| `/mobile` | About / home |
-| `/mobile/posts` | Post list with zh/en toggle |
+| Route                  | Description                      |
+| ---------------------- | -------------------------------- |
+| `/mobile`              | About / home                     |
+| `/mobile/posts`        | Post list with zh/en toggle      |
 | `/mobile/posts/[slug]` | Post detail with prose rendering |
-| `/mobile/tags` | Tag cloud |
-| `/mobile/tags/[tag]` | Posts filtered by tag |
+| `/mobile/tags`         | Tag cloud                        |
+| `/mobile/tags/[tag]`   | Posts filtered by tag            |
 
 - Floating theme toggle + slide-in nav menu
 - `prose` typography plugin for post content
@@ -28,7 +30,9 @@ Responsive blog UI (inspired by [tailwind-nextjs-starter-blog](https://github.co
 - Scroll position preserved when navigating back from post detail
 
 ### Smart routing
+
 `/posts/[slug]` detects viewport on load:
+
 - **mobile** (`< 768px`) → `/mobile/posts/[slug]`
 - **desktop** → `/desk?post=[slug]`
 
@@ -41,7 +45,7 @@ pnpm install && pnpm dev
 - `pnpm typecheck` — `tsc --noEmit`
 - `pnpm format` / `pnpm format:check` — Prettier
 
-**`NEXT_PUBLIC_SITE_URL`** / **`NEXT_PUBLIC_BASE_PATH`** — copy `.env.example` → `.env.local`. Origin URL has no trailing slash. **User site** (`username.github.io` repo): leave `NEXT_PUBLIC_BASE_PATH` empty. **Project site** (e.g. `tonyh2021`): set `NEXT_PUBLIC_SITE_URL=https://<user>.github.io/tonyh2021` and GitHub Variable `NEXT_PUBLIC_BASE_PATH=/tonyh2021`.
+**`NEXT_PUBLIC_SITE_URL`** / **`NEXT_PUBLIC_BASE_PATH`** — copy `.env.example` → `.env.local`. Origin URL has no trailing slash. **User site** (`username.github.io` repo): leave `NEXT_PUBLIC_BASE_PATH` empty. **Project site** (e.g. `bloodline0902`): set `NEXT_PUBLIC_SITE_URL=https://<user>.github.io/bloodline0902` and GitHub Variable `NEXT_PUBLIC_BASE_PATH=/bloodline0902`.
 
 ## Build
 

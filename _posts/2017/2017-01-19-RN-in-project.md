@@ -270,5 +270,5 @@ React packager ready.
 2.不同的页面需要加载不同的 bundle 时，怎么进行区分。
 
 ### 代码：
-文章中的代码都可以从我的GitHub [`react-in-project`](https://github.com/tonyh2021/react-in-project)找到。
+文章中的代码都可以从我的GitHub [`react-in-project`](https://github.com/bloodline0902/react-in-project)找到。
 

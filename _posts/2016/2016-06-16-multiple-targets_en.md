@@ -114,7 +114,7 @@ Someone on [`stackoverflow`](http://stackoverflow.com/questions/26287103/cocoapo
 
 
 ### Code:
-All code from this article can be found on my GitHub: [`MultipleTargetTest`](https://github.com/tonyh2021/MultipleTargetTest).
+All code from this article can be found on my GitHub: [`MultipleTargetTest`](https://github.com/bloodline0902/MultipleTargetTest).
 
 ### References:
 

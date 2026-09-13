@@ -173,4 +173,4 @@ A preliminary solution is to set up an HTTP proxy between Scrapy and SOCKS. The 
 
 That's where the [Tor project](https://www.torproject.org/) comes in.
 
-A [separate post](https://tonyh2021.github.io/articles/2017/12/30/tor.html) is needed to introduce Tor.
+A [separate post](https://bloodline0902.github.io/articles/2017/12/30/tor.html) is needed to introduce Tor.

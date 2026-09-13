@@ -120,7 +120,7 @@ export function Macos404Alert() {
               className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#4a4a4a] text-[13px] font-medium text-white/90 shadow-sm transition-colors hover:bg-[#555555] active:bg-[#404040]"
               onClick={() =>
                 window.open(
-                  "https://github.com/tonyh2021/tonyh2021",
+                  "https://github.com/bloodline0902/bloodline0902.github.io",
                   "_blank",
                   "noopener,noreferrer",
                 )

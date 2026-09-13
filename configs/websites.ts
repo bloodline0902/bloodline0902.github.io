@@ -20,7 +20,7 @@ export const websites: { favorites: SiteSection; freq: SiteSection } = {
         id: "my-github",
         title: "GitHub",
         img: "/images/apps/github.png",
-        link: "https://github.com/tonyh2021",
+        link: "https://github.com/bloodline0902",
       },
       {
         id: "my-stackoverflow",

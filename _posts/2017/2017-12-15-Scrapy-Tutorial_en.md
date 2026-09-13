@@ -514,4 +514,4 @@ class TagSpider(scrapy.Spider):
 Of course, the examples above are relatively simple. Scrapy has many other features — [here](https://doc.scrapy.org/en/latest/index.html#section-basics) you can find more.
 
 ## Code
-All code from this article can be found on my GitHub: [ScrapyDemo](https://github.com/tonyh2021/ScrapyDemo).
+All code from this article can be found on my GitHub: [ScrapyDemo](https://github.com/bloodline0902/ScrapyDemo).

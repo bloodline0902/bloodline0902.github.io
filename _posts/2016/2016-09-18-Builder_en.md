@@ -221,6 +221,6 @@ The Builder pattern helps construct objects that involve various combinations of
 
 ### Code
 
-All the code in this article can be found on my GitHub [`DesignPatterns`](https://github.com/tonyh2021/DesignPatterns).
+All the code in this article can be found on my GitHub [`DesignPatterns`](https://github.com/bloodline0902/DesignPatterns).
 
 

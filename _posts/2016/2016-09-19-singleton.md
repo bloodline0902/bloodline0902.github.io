@@ -20,7 +20,7 @@ comments: true
 
 ## 使用场景
 
-- 类只能有一个实例，而且必须从一个为人熟知的访问点对其进行访问，比如[工厂方法](https://tonyh2021.github.io/articles/2016/09/06/factory.html)。
+- 类只能有一个实例，而且必须从一个为人熟知的访问点对其进行访问，比如[工厂方法](https://bloodline0902.github.io/articles/2016/09/06/factory.html)。
 
 - 这个唯一的实例只能通过子类化进行扩展，而且扩展的对象不会破坏客户端代码。
 
@@ -254,5 +254,5 @@ NSLog(@"%@", smartSingleton);
 
 ### 代码
 
-文章中的代码都可以从我的GitHub [`DesignPatterns`](https://github.com/tonyh2021/DesignPatterns)找到。
+文章中的代码都可以从我的GitHub [`DesignPatterns`](https://github.com/bloodline0902/DesignPatterns)找到。
 

@@ -78,7 +78,7 @@ convenience init() {
 While answering a question on `stackoverflow`, I came across an issue involving using `RACObserve` in `Controller0 (OC)` to observe property changes in a `ViewModel (Swift)`. I knew that `RACObserve` uses KVO under the hood, and for a Swift object to support KVO it must inherit from `NSObject` — so I gave an answer in English. But the poster had indeed inherited from `NSObject`. I pulled out my computer late at night to test it, and sure enough, it didn't work. Another person had answered that the property must be marked with `dynamic`. Adding `dynamic` fixed the issue. My answer wasn't accepted, but it was a good reminder to dig deeper into how Swift handles dynamic dispatch.
 
 ### Code:
-All code from this article can be found on my GitHub: [`SwiftTipsDemo`](https://github.com/tonyh2021/SwiftTipsDemo).
+All code from this article can be found on my GitHub: [`SwiftTipsDemo`](https://github.com/bloodline0902/SwiftTipsDemo).
 
 
 

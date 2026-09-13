@@ -223,5 +223,5 @@ The inheritance chain for class instance variables:
 > All metaclasses ultimately inherit from a root metaclass, whose `isa` pointer points to itself, forming a closed loop.
 
 ### Code:
-All code from this post can be found on my GitHub [`runtime_demo`](https://github.com/tonyh2021/runtime_demo).
+All code from this post can be found on my GitHub [`runtime_demo`](https://github.com/bloodline0902/runtime_demo).
 

@@ -127,5 +127,5 @@ self.imageView2.image = [UIImage imageWithData:imageData2];
 
 
 ### Code:
-All code from this article can be found on my GitHub at [`BundleDemo`](https://github.com/tonyh2021/BundleDemo).
+All code from this article can be found on my GitHub at [`BundleDemo`](https://github.com/bloodline0902/BundleDemo).
 

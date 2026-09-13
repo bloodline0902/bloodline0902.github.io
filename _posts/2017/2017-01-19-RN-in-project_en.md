@@ -269,6 +269,6 @@ A few things still need to be investigated:
 2. How to differentiate between different bundles when different pages need to load different ones.
 
 ### Code
-All the code in this article can be found on my GitHub [`react-in-project`](https://github.com/tonyh2021/react-in-project).
+All the code in this article can be found on my GitHub [`react-in-project`](https://github.com/bloodline0902/react-in-project).
 
 

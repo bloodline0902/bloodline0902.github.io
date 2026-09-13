@@ -70,5 +70,5 @@ done
 Check them all out after installation.
 
 ### Code:
-All code from this article can be found on my GitHub at [`MyCodeSnippet`](https://github.com/tonyh2021/MyCodeSnippet).
+All code from this article can be found on my GitHub at [`MyCodeSnippet`](https://github.com/bloodline0902/MyCodeSnippet).
 

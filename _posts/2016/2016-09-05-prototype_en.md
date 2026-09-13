@@ -17,7 +17,7 @@ The design patterns rabbit hole is going to take at least ten to twenty posts to
 
 **Prototype Pattern**: Specifies the kind of objects to create using a prototype instance, and creates new objects by copying that prototype. In plain terms: in Objective-C, you can use deep copying to quickly and conveniently create new objects.
 
-> [Deep Copy vs. Shallow Copy in iOS](https://tonyh2021.github.io/articles/2016/03/10/memory3-copy.html)
+> [Deep Copy vs. Shallow Copy in iOS](https://bloodline0902.github.io/articles/2016/03/10/memory3-copy.html)
 
 ## Class Diagram
 
@@ -303,12 +303,12 @@ I've gone a bit far down the rabbit hole.
 
 ## Prototype Pattern in Cocoa
 
-Beyond the various `copy` methods discussed above, there's actually another classic example of the Prototype pattern in Cocoa: Zombie Objects (`NSZombie Object`). Although what's being copied here is a class object rather than an instance, since classes in Objective-C are also special objects, understanding this through the lens of the Prototype pattern is reasonable. See [Using Zombie Objects to Aid Debugging](https://tonyh2021.github.io/articles/2016/09/01/NSZombie.html) for details.
+Beyond the various `copy` methods discussed above, there's actually another classic example of the Prototype pattern in Cocoa: Zombie Objects (`NSZombie Object`). Although what's being copied here is a class object rather than an instance, since classes in Objective-C are also special objects, understanding this through the lens of the Prototype pattern is reasonable. See [Using Zombie Objects to Aid Debugging](https://bloodline0902.github.io/articles/2016/09/01/NSZombie.html) for details.
 
 ### References
 
-[Deep Copy vs. Shallow Copy in iOS](https://tonyh2021.github.io/articles/2016/03/10/memory3-copy.html)
+[Deep Copy vs. Shallow Copy in iOS](https://bloodline0902.github.io/articles/2016/03/10/memory3-copy.html)
 
 ### Code
 
-All code in this article can be found in my GitHub repository [`DesignPatterns`](https://github.com/tonyh2021/DesignPatterns).
+All code in this article can be found in my GitHub repository [`DesignPatterns`](https://github.com/bloodline0902/DesignPatterns).

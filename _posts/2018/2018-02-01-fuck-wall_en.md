@@ -16,7 +16,7 @@ In order to better study socialist core values and achieve the great rejuvenatio
 
 ## DIY Approach
 
-#### The SS protocol is probably no longer usable. Recently I've been using V2Ray's VMess protocol and the Trojan protocol. These two protocols are relatively more complex to configure, and it's no longer possible to write an iOS client like before. So the configuration below has been switched to V2Ray's. For specific configuration and usage, see [here](https://tonyh2021.github.io/articles/2019/06/24/v2ray.html).
+#### The SS protocol is probably no longer usable. Recently I've been using V2Ray's VMess protocol and the Trojan protocol. These two protocols are relatively more complex to configure, and it's no longer possible to write an iOS client like before. So the configuration below has been switched to V2Ray's. For specific configuration and usage, see [here](https://bloodline0902.github.io/articles/2019/06/24/v2ray.html).
 
 The internet is easy to access, but truth is not — cherish every moment you spend browsing freely.
 
@@ -99,4 +99,4 @@ Paste it into the command line and press Enter to authenticate. As shown below, 
 ![wall-16](/images/posts/20180201-fuck-wall/16.png)
 
 
-The subsequent configuration has been switched to V2Ray. For specific configuration and usage, see [here](https://tonyh2021.github.io/articles/2019/06/24/v2ray.html)
+The subsequent configuration has been switched to V2Ray. For specific configuration and usage, see [here](https://bloodline0902.github.io/articles/2019/06/24/v2ray.html)

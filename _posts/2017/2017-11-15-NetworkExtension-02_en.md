@@ -10,7 +10,7 @@ comments: true
 
 ## Introduction
 
-In the previous post I covered [some background knowledge on circumventing the GFW](https://tonyh2021.github.io/articles/2017/11/13/NetworkExtension-01.html). This post will first introduce NetworkExtension and related open-source iOS projects, then we'll get started on our own project.
+In the previous post I covered [some background knowledge on circumventing the GFW](https://bloodline0902.github.io/articles/2017/11/13/NetworkExtension-01.html). This post will first introduce NetworkExtension and related open-source iOS projects, then we'll get started on our own project.
 
 In essence, the NetworkExtension app we're building plays the role of SS-Local.
 
@@ -20,7 +20,7 @@ In essence, the NetworkExtension app we're building plays the role of SS-Local.
 
 Network Extension first appeared in iOS 8, but that version did not support virtual network interfaces — it could only call into the system's built-in IPSec and IKEv2 VPN protocols. In iOS 9, developers gained the ability to extend the core networking layer using `NETunnelProvider`, enabling non-standard, custom VPN technologies. The two most important classes are `NETunnelProviderManager` and `NEPacketTunnelProvider`.
 
-[Potatso](https://github.com/Potatso/Potatso) implemented a Shadowsocks proxy using the NE framework. Unfortunately, the author deleted the open-source code for [various reasons](https://sspai.com/post/38909). A number of forks exist on GitHub but they are all slow to update. The most recently runnable version I found is [this one](https://github.com/haxpor/Potatso), but since I had already upgraded to Xcode 9, I had to make a series of changes. I eventually got a [version](https://github.com/tonyh2021/Potatso) that compiles and runs on Xcode 9, though it's not perfect. Feel free to use it as a learning reference.
+[Potatso](https://github.com/Potatso/Potatso) implemented a Shadowsocks proxy using the NE framework. Unfortunately, the author deleted the open-source code for [various reasons](https://sspai.com/post/38909). A number of forks exist on GitHub but they are all slow to update. The most recently runnable version I found is [this one](https://github.com/haxpor/Potatso), but since I had already upgraded to Xcode 9, I had to make a series of changes. I eventually got a [version](https://github.com/bloodline0902/Potatso) that compiles and runs on Xcode 9, though it's not perfect. Feel free to use it as a learning reference.
 
 ## About NEKit
 
@@ -207,4 +207,4 @@ Debugging app code is straightforward, but how do you debug code inside the exte
 ![04](/images/posts/20171115-NetworkExtension/04.png)
 
 ### Code
-All the code in this article can be found on my GitHub [`QLadder`](https://github.com/tonyh2021/QLadder).
+All the code in this article can be found on my GitHub [`QLadder`](https://github.com/bloodline0902/QLadder).

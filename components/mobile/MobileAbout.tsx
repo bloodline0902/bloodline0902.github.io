@@ -36,7 +36,7 @@ export default function MobileAbout() {
             </div>
             <div className="flex gap-3 pt-2">
               <a
-                href="https://github.com/tonyh2021"
+                href="https://github.com/bloodline0902"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-lg bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"

@@ -148,6 +148,6 @@ The Adapter pattern offers many benefits, such as decoupling the client from the
 
 ### Code
 
-All the code in this article can be found on my GitHub [`DesignPatterns`](https://github.com/tonyh2021/DesignPatterns).
+All the code in this article can be found on my GitHub [`DesignPatterns`](https://github.com/bloodline0902/DesignPatterns).
 
 

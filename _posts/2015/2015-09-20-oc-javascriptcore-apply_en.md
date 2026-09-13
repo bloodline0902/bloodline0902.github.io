@@ -231,7 +231,7 @@ Since `JSVirtualMachine` provides resources for the entire JavaScriptCore execut
 ```
 
 ### Code:
-All code from this post can be found on my GitHub [`JavaScriptCoreDemo`](https://github.com/tonyh2021/JavaScriptCoreDemo).
+All code from this post can be found on my GitHub [`JavaScriptCoreDemo`](https://github.com/bloodline0902/JavaScriptCoreDemo).
 
 ### References:
 
