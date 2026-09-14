@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/configs/site";
 
+/** Public ownership token from the Search Console property. Left unset outside
+ *  production so local and fork builds never claim the verified property. */
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -17,6 +21,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...(googleSiteVerification ? { verification: { google: googleSiteVerification } } : {}),
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
