@@ -17,6 +17,9 @@ export interface SystemSlice {
   fullscreen: boolean;
   systemPhase: SystemPhase;
   locale: Locale;
+  /** Locale carried in by a deep link. Overrides `locale` for post bodies only
+   *  and is never persisted (openspec language-switching). */
+  viewLocale: Locale | null;
   toggleDark: () => void;
   initDark: () => void;
   setBrightness: (v: number) => void;
@@ -31,6 +34,8 @@ export interface SystemSlice {
   restart: () => void;
   setLocale: (l: Locale) => void;
   initLocale: () => void;
+  setViewLocale: (l: Locale) => void;
+  clearViewLocale: () => void;
 }
 
 export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
@@ -43,6 +48,7 @@ export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
   fullscreen: false,
   systemPhase: "login",
   locale: "en",
+  viewLocale: null,
   setSystemPhase: (p) => set({ systemPhase: p }),
   shutdown: () => {
     localStorage.removeItem("desktopDate");
@@ -94,8 +100,11 @@ export const createSystemSlice: StateCreator<SystemSlice> = (set) => ({
     if (typeof window !== "undefined") {
       localStorage.setItem(LOCALE_STORAGE_KEY, l);
     }
-    set({ locale: l });
+    // An explicit choice supersedes whatever a deep link asked for.
+    set({ locale: l, viewLocale: null });
   },
+  setViewLocale: (l) => set({ viewLocale: l }),
+  clearViewLocale: () => set({ viewLocale: null }),
   initLocale: () => {
     if (typeof window === "undefined") return;
     const saved = localStorage.getItem(LOCALE_STORAGE_KEY);

@@ -13,10 +13,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  return buildPostMetadata(slug, "en");
+  return buildPostMetadata(slug, "zh");
 }
 
-export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ZhPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  return <PostSeoSurface slug={slug} locale="en" />;
+  return <PostSeoSurface slug={slug} locale="zh" />;
 }

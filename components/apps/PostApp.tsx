@@ -31,6 +31,7 @@ type FilterType =
 export default function PostApp() {
   const postIndexBundle = usePostIndexBundle();
   const locale = useStore((s) => s.locale);
+  const viewLocale = useStore((s) => s.viewLocale);
 
   const indices = resolvePostIndices(postIndexBundle, locale);
 
@@ -67,6 +68,15 @@ export default function PostApp() {
 
   useEffect(() => {
     if (!blogCurrentSlug) return;
+    // A deep link's arrival locale selects the body only. The list keeps using
+    // `indices`, and the stored preference is never written.
+    if (viewLocale) {
+      const arrival = postIndexBundle[viewLocale].find((p) => p.slug === blogCurrentSlug);
+      if (arrival) {
+        setSelectedIndex(arrival);
+        return;
+      }
+    }
     const found = indices.find((p) => p.slug === blogCurrentSlug);
     if (found) {
       setSelectedIndex(found);
@@ -79,7 +89,7 @@ export default function PostApp() {
     } else {
       setSelectedIndex(indices[0] ?? null);
     }
-  }, [blogCurrentSlug, indices, locale, postIndexBundle]);
+  }, [blogCurrentSlug, indices, locale, postIndexBundle, viewLocale]);
 
   const loadBody = useCallback(async (index: PostIndex | null) => {
     if (!index) {

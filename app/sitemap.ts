@@ -14,12 +14,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/tags/`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];
 
-  const postRoutes: MetadataRoute.Sitemap = getAllPosts("zh").map((post) => ({
-    url: `${SITE_URL}/posts/${post.slug}/`,
-    lastModified: post.frontMatter.date ? new Date(post.frontMatter.date) : now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  /** Both locales are canonical-layer URLs: each serves a language the other does
+   *  not (openspec seo-metadata). Interaction-layer routes stay out. */
+  const postRoutes: MetadataRoute.Sitemap = getAllPosts("zh").flatMap((post) => {
+    const lastModified = post.frontMatter.date ? new Date(post.frontMatter.date) : now;
+    return [`/posts/${post.slug}/`, `/zh/posts/${post.slug}/`].map((path) => ({
+      url: `${SITE_URL}${path}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }));
+  });
 
   return [...staticRoutes, ...postRoutes];
 }

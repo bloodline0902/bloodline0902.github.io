@@ -78,6 +78,7 @@ export default function MacDesktop() {
   const focusWin = useStore((s) => s.focusWin);
   const initWins = useStore((s) => s.initWins);
   const setBlogCurrentSlug = useStore((s) => s.setBlogCurrentSlug);
+  const setViewLocale = useStore((s) => s.setViewLocale);
   const [mounted, setMounted] = useState(false);
   const [showLaunchpad, setShowLaunchpad] = useState(false);
   /** Keep Launchpad mounted after first open so close opacity transition can finish. */
@@ -94,6 +95,12 @@ export default function MacDesktop() {
     const postSlug = params.get("post");
     if (postSlug) {
       setBlogCurrentSlug(postSlug);
+      // Read before the query is stripped; the arrival locale applies to the
+      // view only and is never persisted (openspec language-switching).
+      const arrivalLocale = params.get("locale");
+      if (arrivalLocale === "zh" || arrivalLocale === "en") {
+        setViewLocale(arrivalLocale);
+      }
       window.history.replaceState(null, "", window.location.pathname);
     }
     setTimeout(() => openWin("blog"), 80);

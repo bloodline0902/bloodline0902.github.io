@@ -9,6 +9,8 @@ function getRedirectTarget(pathname: string, isMobile: boolean): string | null {
     return "/mobile";
   }
   if (!isMobile && pathname.startsWith("/mobile")) {
+    const localeMatch = pathname.match(/^\/mobile\/(zh)\/posts\/([^/]+)/);
+    if (localeMatch) return `/desk?post=${localeMatch[2]}&locale=${localeMatch[1]}`;
     const postMatch = pathname.match(/^\/mobile\/posts\/([^/]+)/);
     if (postMatch) return `/desk?post=${postMatch[1]}`;
     return "/desk";
