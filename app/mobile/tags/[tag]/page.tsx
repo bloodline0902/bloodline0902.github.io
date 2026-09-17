@@ -6,7 +6,21 @@ import MobileHeader from "@/components/mobile/MobileHeader";
 
 export async function generateStaticParams() {
   const tagMap = getAllTags();
-  return Object.keys(tagMap).map((tag) => ({ tag: encodeURIComponent(tag) }));
+  // Return the raw tag. Next.js percent-encodes the segment itself when it
+  // writes the exported directory, so encoding here produces a directory
+  // literally named "Claude%20Code" that no request can ever resolve to.
+  return Object.keys(tagMap).map((tag) => ({ tag }));
+}
+
+// Static export hands back the raw tag, while dev serves the percent-encoded
+// segment from the URL. Decode when it is encoded, and keep the input when a
+// stray "%" would make decodeURIComponent throw.
+function decodeTag(tag: string): string {
+  try {
+    return decodeURIComponent(tag);
+  } catch {
+    return tag;
+  }
 }
 
 function formatDate(dateStr: string): string {
@@ -24,7 +38,7 @@ export default async function MobileTagPage({
   params: Promise<{ tag: string }>;
 }) {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
+  const decoded = decodeTag(tag);
   const posts = getAllPosts().filter((p) =>
     normalizeTags(p.frontMatter.tags).includes(decoded),
   );
