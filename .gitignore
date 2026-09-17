@@ -48,6 +48,7 @@ out/
 
 # Generated post JSON for lazy-load (recreated by predev / prebuild)
 public/data/post-bodies/
+public/data/post-index.json
 
 # Env (keep .env.example committed)
 .env

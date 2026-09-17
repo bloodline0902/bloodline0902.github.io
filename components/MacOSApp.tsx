@@ -6,8 +6,12 @@ import { useShallow } from "zustand/shallow";
 import SleepOverlay from "./SleepOverlay";
 import Login from "./Login";
 import MacDesktop from "./desktop/MacDesktop";
+import type { Locale } from "@/lib/postBundle";
 
-export default function MacOSApp() {
+/** A post to open on arrival. Present when the app is mounted from a post page. */
+export type DesktopEntry = { slug: string; locale: Locale };
+
+export default function MacOSApp({ entry }: { entry?: DesktopEntry }) {
   const { initDark, initLocale, systemPhase, setSystemPhase } = useStore(
     useShallow((s) => ({
       initDark: s.initDark,
@@ -20,6 +24,9 @@ export default function MacOSApp() {
   // Run before paint so useWallpaper() picks up the correct dark value on first frame.
   useLayoutEffect(() => {
     initDark();
+    // A reader arriving on a post URL goes straight to the desktop; the login
+    // screen belongs to the boot flow at / (openspec post-pages).
+    if (entry) setSystemPhase("desktop");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -32,7 +39,7 @@ export default function MacOSApp() {
 
   return (
     <>
-      {showMacDesktop ? <MacDesktop /> : <Login />}
+      {showMacDesktop ? <MacDesktop entry={entry} /> : <Login />}
 
       {/* Sleep overlay */}
       {systemPhase === "sleep" && (

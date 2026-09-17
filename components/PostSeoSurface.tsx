@@ -1,41 +1,45 @@
 import { notFound } from "next/navigation";
-import PostDeepLink from "@/components/PostDeepLink";
-import { markdownExcerpt } from "@/lib/postExcerpt";
+import DeskMount from "@/components/DeskMount";
+import MobileFloatingControls from "@/components/mobile/MobileFloatingControls";
+import MobilePostArticle from "@/components/mobile/MobilePostArticle";
 import { buildArticleJsonLd, resolvePost } from "@/lib/postSeo";
 import type { Locale } from "@/lib/postBundle";
 
 /**
- * Crawler-facing surface for one post in one locale. Humans are redirected into
- * the app immediately; only bots and non-JS clients ever read what is rendered here.
+ * A post rendered in place at its own URL, for readers and crawlers alike.
+ * Nothing here navigates away: the indexed URL is the one the reader stays on
+ * (openspec post-pages, seo-metadata).
+ *
+ * Both interfaces are server-rendered and CSS picks one by width, so first
+ * paint needs no client decision. Below 768px the article is real, visible
+ * content; from 768px the macOS app mounts with this post open.
  */
 export default function PostSeoSurface({ slug, locale }: { slug: string; locale: Locale }) {
   const resolved = resolvePost(slug, locale);
   if (!resolved) notFound();
   const { post } = resolved;
   const articleJsonLd = buildArticleJsonLd(slug, locale);
-  const plainText = markdownExcerpt(post.content, post.content.length);
-  const mobileTarget = locale === "en" ? `/mobile/posts/${slug}` : `/mobile/${locale}/posts/${slug}`;
-  const deskTarget = locale === "en" ? `/desk?post=${slug}` : `/desk?post=${slug}&locale=${locale}`;
 
   return (
     <>
-      {/* Redirect before React hydration */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `window.location.replace(window.innerWidth < 768 ? "${mobileTarget}" : "${deskTarget}");`,
-        }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      {/* Full content for crawlers that don't execute JS */}
-      <article aria-hidden="true" style={{ position: "absolute", left: "-9999px" }}>
-        <h1>{post.frontMatter.title}</h1>
-        {post.frontMatter.description && <p>{post.frontMatter.description}</p>}
-        <p>{plainText}</p>
-      </article>
-      <PostDeepLink slug={slug} locale={locale === "en" ? undefined : locale} />
+
+      {/* Below md: the mobile article. The root <body> does not scroll, so this
+          shell supplies its own scrolling container, as /mobile's layout does. */}
+      <div className="relative flex h-screen flex-col bg-white text-gray-900 md:hidden dark:bg-gray-950 dark:text-gray-100">
+        <main className="flex-1 overflow-y-auto">
+          <MobilePostArticle post={post} slug={slug} />
+        </main>
+        <MobileFloatingControls />
+      </div>
+
+      {/* From md: the macOS app, mounted after hydration. */}
+      <div className="hidden min-h-screen bg-black md:block">
+        <DeskMount slug={slug} locale={locale} />
+      </div>
     </>
   );
 }

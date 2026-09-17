@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useMemo, useRef, type ReactNode } from "react";
+import type { DesktopEntry } from "@/components/MacOSApp";
 import dynamic from "next/dynamic";
 import { useStore } from "@/store";
 import { useShallow } from "zustand/shallow";
@@ -52,7 +53,7 @@ const Terminal = dynamic(() => import("@/components/apps/Terminal"), {
 const Launchpad = dynamic(() => import("@/components/Launchpad"), { ssr: false });
 const Spotlight = dynamic(() => import("@/components/Spotlight"), { ssr: false });
 
-export default function MacDesktop() {
+export default function MacDesktop({ entry }: { entry?: DesktopEntry }) {
   const { wins, currentApp, brightness } = useStore(
     useShallow((s) => ({
       wins: s.wins,
@@ -93,7 +94,12 @@ export default function MacDesktop() {
     initWins(ALL_WIN_IDS);
     const params = new URLSearchParams(window.location.search);
     const postSlug = params.get("post");
-    if (postSlug) {
+    if (entry) {
+      // Mounted from a post page: the route supplies the post and its locale,
+      // and the address bar already names that post, so it is left alone.
+      setBlogCurrentSlug(entry.slug);
+      if (entry.locale !== "en") setViewLocale(entry.locale);
+    } else if (postSlug) {
       setBlogCurrentSlug(postSlug);
       // Read before the query is stripped; the arrival locale applies to the
       // view only and is never persisted (openspec language-switching).
