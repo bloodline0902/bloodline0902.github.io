@@ -1,10 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import MacOSApp from "@/components/MacOSApp";
-import PostIndexLoader from "@/components/PostIndexLoader";
 import { MOBILE_BREAKPOINT_PX } from "@/hooks/useMobile";
 import type { Locale } from "@/lib/postBundle";
+
+// Loaded only once the viewport proves to be desktop width, so a phone never
+// downloads the window manager it would never show.
+const DesktopShell = dynamic(() => import("@/components/DesktopShell"), {
+  ssr: false,
+});
 
 /**
  * Mounts the macOS app into a post page, only at desktop width. CSS already
@@ -12,7 +17,13 @@ import type { Locale } from "@/lib/postBundle";
  * on phones. Mounts on the first widening past the breakpoint and then stays
  * mounted, leaving CSS to hide it again (openspec post-pages).
  */
-export default function DeskMount({ slug, locale }: { slug: string; locale: Locale }) {
+export default function DeskMount({
+  slug,
+  locale,
+}: {
+  slug: string;
+  locale: Locale;
+}) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,9 +37,5 @@ export default function DeskMount({ slug, locale }: { slug: string; locale: Loca
   }, [mounted]);
 
   if (!mounted) return null;
-  return (
-    <PostIndexLoader>
-      <MacOSApp entry={{ slug, locale }} />
-    </PostIndexLoader>
-  );
+  return <DesktopShell slug={slug} locale={locale} />;
 }
