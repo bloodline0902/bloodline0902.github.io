@@ -31,7 +31,7 @@ export default function PostSeoSurface({ slug, locale }: { slug: string; locale:
           shell supplies its own scrolling container, as /mobile's layout does. */}
       <div className="relative flex h-screen flex-col bg-white text-gray-900 md:hidden dark:bg-gray-950 dark:text-gray-100">
         <main className="flex-1 overflow-y-auto">
-          <MobilePostArticle post={post} slug={slug} />
+          <MobilePostArticle post={post} slug={slug} locale={locale} />
         </main>
         <MobileFloatingControls />
       </div>

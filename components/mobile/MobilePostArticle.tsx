@@ -6,7 +6,9 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import MobileShareButton from "@/components/mobile/MobileShareButton";
+import { postPath } from "@/lib/postSeo";
 import { normalizeTags } from "@/lib/utils";
+import type { Locale } from "@/lib/postBundle";
 import type { Post } from "@/lib/types";
 
 function formatDate(dateStr: string): string {
@@ -17,7 +19,16 @@ function formatDate(dateStr: string): string {
 }
 
 /** The mobile article view, shared by /mobile/posts/** and the post pages. */
-export default function MobilePostArticle({ post, slug }: { post: Post; slug: string }) {
+export default function MobilePostArticle({
+  post,
+  slug,
+  locale,
+}: {
+  post: Post;
+  slug: string;
+  /** Which language this view reads as, so Share offers that canonical URL. */
+  locale: Locale;
+}) {
   const tags = normalizeTags(post.frontMatter.tags);
 
   return (
@@ -72,7 +83,10 @@ export default function MobilePostArticle({ post, slug }: { post: Post; slug: st
             >
               ← All Posts
             </Link>
-            <MobileShareButton slug={slug} title={post.frontMatter.title} />
+            <MobileShareButton
+              path={postPath(locale, slug)}
+              title={post.frontMatter.title}
+            />
           </div>
         </footer>
       </article>

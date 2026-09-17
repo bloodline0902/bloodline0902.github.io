@@ -3,15 +3,16 @@
 import { useState } from "react";
 
 interface Props {
-  slug: string;
+  /** Site-relative canonical path of the post, e.g. "/zh/posts/my-post/". */
+  path: string;
   title: string;
 }
 
-export default function MobileShareButton({ slug, title }: Props) {
+export default function MobileShareButton({ path, title }: Props) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
-    const url = `${window.location.origin}/posts/${slug}/`;
+    const url = `${window.location.origin}${path}`;
     if (navigator.share) {
       await navigator.share({ title, url });
     } else {
