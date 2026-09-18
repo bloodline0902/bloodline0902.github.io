@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Macos404Alert } from "@/components/Macos404Alert";
-import { siteConfig } from "@/configs/site";
 
 export const metadata: Metadata = {
-  title: `Page Not Found | ${siteConfig.name}`,
+  // Bare title: the root layout's template appends the site name.
+  title: "Page Not Found",
   description: "The requested page does not exist.",
   robots: { index: false, follow: true },
 };
