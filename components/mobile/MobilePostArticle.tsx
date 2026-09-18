@@ -6,7 +6,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import MobileShareButton from "@/components/mobile/MobileShareButton";
-import { postPath } from "@/lib/postSeo";
+import { archivePath, getPostNeighbours, postPath } from "@/lib/postSeo";
 import { normalizeTags } from "@/lib/utils";
 import type { Locale } from "@/lib/postBundle";
 import type { Post } from "@/lib/types";
@@ -18,18 +18,48 @@ function formatDate(dateStr: string): string {
   });
 }
 
+/** Which layer is rendering the article, which decides where its links go. */
+export type ArticleSurface = "canonical" | "app";
+
+/**
+ * Footer link targets per surface. A canonical page whose only exits were
+ * `/mobile/**` would have nothing but `noindex` to offer a crawler; an app
+ * page linking out to canonical URLs would drop the reader out of the
+ * interface they are using (openspec seo-metadata, post-pages).
+ */
+function footerLinks(surface: ArticleSurface, locale: Locale) {
+  if (surface === "canonical") {
+    return {
+      archive: archivePath(locale),
+      tag: (tag: string) => `/tags/#${encodeURIComponent(tag)}`,
+      post: (target: string) => postPath(locale, target),
+    };
+  }
+  return {
+    archive: "/mobile/posts",
+    tag: (tag: string) => `/mobile/tags/${encodeURIComponent(tag)}`,
+    post: (target: string) =>
+      locale === "en" ? `/mobile/posts/${target}` : `/mobile/zh/posts/${target}`,
+  };
+}
+
 /** The mobile article view, shared by /mobile/posts/** and the post pages. */
 export default function MobilePostArticle({
   post,
   slug,
   locale,
+  surface,
 }: {
   post: Post;
   slug: string;
   /** Which language this view reads as, so Share offers that canonical URL. */
   locale: Locale;
+  /** Required so neither caller can silently inherit the other's link targets. */
+  surface: ArticleSurface;
 }) {
   const tags = normalizeTags(post.frontMatter.tags);
+  const links = footerLinks(surface, locale);
+  const { newer, older } = getPostNeighbours(slug, locale);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
@@ -67,7 +97,7 @@ export default function MobilePostArticle({
                 {tags.map((tag) => (
                   <Link
                     key={tag}
-                    href={`/mobile/tags/${encodeURIComponent(tag)}`}
+                    href={links.tag(tag)}
                     className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50"
                   >
                     {tag}
@@ -76,9 +106,37 @@ export default function MobilePostArticle({
               </div>
             </div>
           )}
+          {(newer || older) && (
+            <nav className="flex items-stretch justify-between gap-4 py-4 text-sm">
+              {older ? (
+                <Link
+                  href={links.post(older.slug)}
+                  className="flex-1 text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  <span className="block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Older
+                  </span>
+                  {older.title}
+                </Link>
+              ) : (
+                <span className="flex-1" />
+              )}
+              {newer && (
+                <Link
+                  href={links.post(newer.slug)}
+                  className="flex-1 text-right text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  <span className="block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Newer
+                  </span>
+                  {newer.title}
+                </Link>
+              )}
+            </nav>
+          )}
           <div className="flex items-center justify-between py-8">
             <Link
-              href="/mobile/posts"
+              href={links.archive}
               className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
             >
               ← All Posts

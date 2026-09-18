@@ -12,6 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "daily", priority: 1 },
     { url: `${SITE_URL}/about/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/tags/`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    /** The archives carry every post link, so they are the site's crawl hubs
+     *  (openspec post-archive). */
+    { url: `${SITE_URL}/posts/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/zh/posts/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
   ];
 
   /** Both locales are canonical-layer URLs: each serves a language the other does

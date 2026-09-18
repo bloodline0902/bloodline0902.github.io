@@ -19,5 +19,5 @@ export default async function MobilePostPage({
   const post = getPostSafe(slug, "en") ?? getPostSafe(slug, "zh");
   if (!post) notFound();
 
-  return <MobilePostArticle post={post} slug={slug} locale="en" />;
+  return <MobilePostArticle post={post} slug={slug} locale="en" surface="app" />;
 }
